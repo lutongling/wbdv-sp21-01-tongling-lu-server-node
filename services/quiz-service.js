@@ -1,29 +1,28 @@
 // hard coded data from local json file
 const quizzes = require("./quizzes.json")
 
-const createQuiz = () => {
-
-}
+// for assignment 8
+// const createQuiz = () => {
+//
+// }
 
 const findAllQuizzes = () => {
     return quizzes
 }
 
-const findQuizById = (qid) => {
+const findQuizById = (qzid) => {
     return quizzes.find((quiz) => {
-        return (quiz._id === qid)
+        return (quiz._id === qzid)
     })
 }
 
-const updateQuiz = () => {
-}
-const deleteQuiz = () => {
-}
+// for assignment 8
+// const updateQuiz = () => {
+// }
+// const deleteQuiz = () => {
+// }
 
 module.exports = {
-    createQuiz,
     findAllQuizzes,
-    findQuizById,
-    updateQuiz,
-    deleteQuiz
+    findQuizById
 }
