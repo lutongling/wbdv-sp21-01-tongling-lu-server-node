@@ -1,20 +1,23 @@
-// hard coded data from local json file
-const questions = require("./questions.json")
+// use the model instead of the hard-coded json file
+// const questionsModel = require("../models/questions/questions-model")
 
-// for A8
-// const createQuestion = () => {}
-// const createQuestionForQuiz = (quizId) => {}
+// use Dao
+const questionsDao = require("../daos/questions-dao")
 
 const findAllQuestions = () => {
-    return questions
+    // return questionsModel.find()
+    return questionsDao.findAllQuestions()
 }
 
 const findQuestionById = (questionId) => {
-    questions.find((question) => question._id === questionId)
+    // return questionsModel.findById(questionId)
+    return questionsDao.findQuestionById(questionId)
 }
 
-const findQuestionsForQuiz = (quizId) =>
-    questions.filter(question => question.quizId === quizId)
+const findQuestionsForQuiz = (quizId) =>{
+    // return questionsModel.find({quizId: quizId})
+    return questionsDao.findQuestionsForQuiz(quizId)
+}
 
 module.exports = {
     findAllQuestions,

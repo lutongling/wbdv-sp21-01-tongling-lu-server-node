@@ -1,26 +1,23 @@
-// hard coded data from local json file
-const quizzes = require("./quizzes.json")
+// use the model instead of the hard-coded json file
+// const quizzes = require("./quizzes.json")
 
-// for assignment 8
-// const createQuiz = () => {
-//
-// }
+// use the model instead of the hard-coded json file
+// const quizzesModel = require("../models/quizzes/quizzes-model")
+
+const quizzesDao = require("../daos/quizzes-dao")
 
 const findAllQuizzes = () => {
-    return quizzes
+    // return quizzesModel.find()
+    return quizzesDao.findAllQuizzes()
 }
 
 const findQuizById = (qzid) => {
-    return quizzes.find((quiz) => {
-        return (quiz._id === qzid)
-    })
+    return quizzesDao.findQuizById(qzid)
+    // return quizzesModel
+    //     .findById(qzid)
+    //     .populate("questions")
+    //     .exec()
 }
-
-// for assignment 8
-// const updateQuiz = () => {
-// }
-// const deleteQuiz = () => {
-// }
 
 module.exports = {
     findAllQuizzes,
