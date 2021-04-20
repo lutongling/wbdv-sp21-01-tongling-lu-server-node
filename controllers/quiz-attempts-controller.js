@@ -10,6 +10,4 @@ module.exports = (app) => {
         quizAttemptDao.findAttemptsForQuiz(req.params.qid)
             .then(attempts => res.send(attempts)))
 
-    app.put('api/quizzes/:qid/attempts', (req, res) =>
-        quizAttemptDao.scoreQuiz())
 }

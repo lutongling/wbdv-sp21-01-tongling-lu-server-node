@@ -1,6 +1,8 @@
 const express = require('express')
 const app = express()
 const bodyParser = require('body-parser')
+app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.json())
 
 const mongoose = require('mongoose');
 mongoose.connect('mongodb://localhost:27017/whiteboard', {useNewUrlParser: true, useUnifiedTopology: true});
@@ -15,9 +17,6 @@ app.use(function (req, res, next) {
     next();
 });
 
-
-app.use(bodyParser.urlencoded({ extended: false }))
-app.use(bodyParser.json())
 
 require("./controllers/quizzes-controller")(app)
 require("./controllers/questions-controller")(app)
